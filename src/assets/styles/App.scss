@@ -7,3 +7,17 @@
   --gray: #161a1d;
   --black: #0b090a;
 }
+
+// Reset
+
+*,
+*::before,
+*::after {
+  direction: rtl;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
