@@ -1,5 +1,7 @@
 <template>
-  <main class="default-layout">hello!</main>
+  <main class="default-layout">
+    <slot />
+  </main>
 </template>
 
 <script>
