@@ -6,4 +6,4 @@ export default {
 };
 </script>
 
-<style src="" lang="scss" scoped />
+<style src="/src/assets/styles/App.scss" lang="scss" scoped />
