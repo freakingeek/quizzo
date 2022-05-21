@@ -2,7 +2,7 @@
 
 <script>
 export default {
-  name: 'QuizApp',
+  name: 'QuizoApp',
 };
 </script>
 
