@@ -5,7 +5,7 @@
       <RouterLink class="header__link" to="/quiz">شروع مسابقه جدید</RouterLink>
     </header>
 
-    <VLeaderboard class="home-view__leaderboard" />
+    <VLeaderboard class="leaderboard" />
   </DefaultLayout>
 </template>
 

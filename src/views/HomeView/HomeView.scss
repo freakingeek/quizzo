@@ -1,9 +1,7 @@
 @use '/src/assets/styles/functions.scss' as *;
 
-.home-view {
-  &__leaderboard {
-    margin-top: rem(32px); // 56px - 24px (leaderboard padding) = 32px
-  }
+.leaderboard {
+  margin-top: rem(32px); // 56px - 24px (leaderboard padding) = 32px
 }
 
 .header {
