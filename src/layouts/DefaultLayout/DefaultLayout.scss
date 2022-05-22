@@ -2,4 +2,8 @@
 
 .default-layout {
   padding: rem(64px) rem(128px);
+  
+  @media screen and (max-width: 425px) {
+    padding: rem(32px) rem(32px);
+  }
 }

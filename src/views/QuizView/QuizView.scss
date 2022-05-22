@@ -13,7 +13,22 @@
 
   &__quizzes {
     margin-top: rem(128px);
-    // margin-top: rem(56px);
+  }
+
+  @media screen and (max-width: 1440px) {
+    &__title {
+      font-size: rem(28px);
+    }
+    
+    &__quizzes {
+      margin-top: rem(80px);
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    &__title {
+      font-size: rem(20px);
+    }
   }
 }
 
@@ -35,7 +50,6 @@
   color: var(--black);
   font-size: rem(20px);
   flex-basis: rem(600px);
-  // flex-basis: rem(491px);
   height: rem(136px);
   cursor: pointer;
   display: flex;
@@ -73,6 +87,20 @@
   &:nth-child(even) {
     margin-top: rem(40px);
     margin-right: rem(48px);
+  }
+
+  @media screen and (max-width: 1440px) {
+    flex-basis: rem(491px);
+  }
+
+  @media screen and (max-width: 425px) {
+    &:not(:first-child) {
+      margin-top: rem(40px);
+    }
+    
+    &:nth-child(even) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -112,6 +140,10 @@
       margin-right: rem(16px);
     }
   }
+
+  @media screen and (max-width: 425px) {
+    margin-top: rem(48px);
+  }
 }
 
 // Status
@@ -141,6 +173,12 @@
   &--lose {
     color: var(--red);
     background: rgba(229, 56, 59, 0.2);
+  }
+
+  @media screen and (max-width: 425px) {
+    &__text {
+      font-size: rem(48px);
+    }
   }
 }
 
