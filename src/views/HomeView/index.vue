@@ -2,7 +2,7 @@
   <DefaultLayout>
     <header class="header">
       <span class="header__text">آماده یه مسابقه کوچیک هستی؟</span>
-      <RouterLink class="header__link" to="#">شروع مسابقه جدید</RouterLink>
+      <RouterLink class="header__link" to="/quiz">شروع مسابقه جدید</RouterLink>
     </header>
 
     <section id="leaderboard" class="leaderboard home-view__leaderboard">
