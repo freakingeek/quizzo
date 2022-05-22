@@ -11,7 +11,7 @@
     <h1 class="quiz-view__title">{{ quiz.title }}</h1>
 
     <div class="quizes quiz-view__quizes">
-      <template v-for="item in quiz.items" :key="item.id">
+      <template v-for="item in quizItems" :key="item.id">
         <div class="quiz" @click="checkAnswer(item.id)">
           <span class="quiz__title">{{ item.title }}</span>
         </div>
@@ -61,6 +61,22 @@ export default {
 
     quiz() {
       return this.quizes[this.step];
+    },
+
+    quizItems() {
+      let curId = this.quiz.items.length;
+
+      while (0 !== curId) {
+        let randId = Math.floor(Math.random() * curId);
+        curId -= 1;
+
+        let tmp = this.quiz.items[curId];
+
+        this.quiz.items[curId] = this.quiz.items[randId];
+        this.quiz.items[randId] = tmp;
+      }
+
+      return this.quiz.items;
     },
 
     statusText() {
