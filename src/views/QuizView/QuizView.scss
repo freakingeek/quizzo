@@ -1,0 +1,144 @@
+@use '/src/assets/styles/functions.scss' as *;
+
+.quiz-view {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  &__title {
+    font-weight: 700;
+    color: var(--black);
+    font-size: rem(44px);
+  }
+
+  &__quizes {
+    margin-top: rem(128px);
+    // margin-top: rem(56px);
+  }
+}
+
+.timeout {
+  top: 0;
+  right: 0;
+  position: fixed;
+  height: rem(4px);
+  background-color: var(--primary);
+}
+
+.quizes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quiz {
+  color: var(--black);
+  font-size: rem(20px);
+  flex-basis: rem(600px);
+  // flex-basis: rem(491px);
+  height: rem(136px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: rem(4px);
+  counter-increment: quiz;
+  transition: ease 0.3s all;
+  padding: rem(40px) rem(24px);
+  border: 2px solid #e5383b16;
+  background-color: var(--white);
+
+  &::before {
+    display: flex;
+    top: rem(-24px);
+    font-weight: 700;
+    width: rem(48px);
+    right: rem(-24px);
+    height: rem(48px);
+    border-radius: 50%;
+    position: absolute;
+    color: var(--black);
+    align-items: center;
+    font-size: rem(28px);
+    content: counter(quiz);
+    justify-content: center;
+    background-color: var(--white);
+    border: 3px solid var(--primary);
+  }
+
+  &:hover {
+    border: 2px solid #e5383b48;
+  }
+
+  &:nth-child(even) {
+    margin-top: rem(40px);
+    margin-right: rem(48px);
+  }
+}
+
+.quiz-counters {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+
+  &__couter {
+    height: rem(24px);
+    border: 2px solid var(--primary);
+
+    &--normal {
+      width: rem(24px);
+      border-radius: rem(12px);
+    }
+
+    &--current {
+      width: rem(48px);
+      border-radius: rem(24px);
+      background-color: #e5383b16;
+    }
+
+    &--lose {
+      width: rem(24px);
+      border-radius: rem(12px);
+      background-color: var(--red);
+    }
+
+    &--win {
+      width: rem(24px);
+      border-radius: rem(12px);
+      background-color: var(--green);
+    }
+
+    &:not(:first-child) {
+      margin-right: rem(16px);
+    }
+  }
+}
+
+// Status
+.status {
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(rem(8px));
+
+  &__text {
+    font-weight: 900;
+    font-size: rem(80px);
+  }
+
+  &--win {
+    color: var(--green);
+    background: rgba(79, 119, 45, 0.2);
+  }
+
+  &--lose {
+    color: var(--red);
+    background: rgba(229, 56, 59, 0.2);
+  }
+}
