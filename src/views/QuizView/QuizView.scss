@@ -130,6 +130,7 @@
   &__text {
     font-weight: 900;
     font-size: rem(80px);
+    animation: show 0.5s forwards;
   }
 
   &--win {
@@ -140,5 +141,46 @@
   &--lose {
     color: var(--red);
     background: rgba(229, 56, 59, 0.2);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: ease 0.3s all;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-leave-to {
+  opacity: 0;
+
+  .status__text {
+    animation: leave 0.5s forwards;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    margin-top: rem(-160px);
+  }
+
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes leave {
+  from {
+    opacity: 1;
+    margin-top: 0;
+  }
+
+  to {
+    opacity: 0;
+    margin-top: rem(-160px);
   }
 }

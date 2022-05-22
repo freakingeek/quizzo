@@ -1,7 +1,9 @@
 <template>
-  <div v-if="statuses[step]" :class="`status status--${statuses[step]}`">
-    <span class="status__text">{{ statusText }}</span>
-  </div>
+  <Transition name="fade">
+    <div v-if="statuses[step]" :class="`status status--${statuses[step]}`">
+      <span class="status__text">{{ statusText }}</span>
+    </div>
+  </Transition>
 
   <DefaultLayout class="quiz-view">
     <div class="timeout" :style="`width: ${width}%`"></div>
@@ -48,7 +50,7 @@ export default {
 
   watch: {
     width(val) {
-      if (val <= 0) this.onLose()
+      if (val <= 0) this.onLose();
     },
   },
 
@@ -92,12 +94,12 @@ export default {
       setTimeout(() => {
         this.width = 100;
         this.status = null;
-        
+
         // Check if next step is available or not
         if (this.step + 1 > this.quizes.length - 1) {
-          return this.$router.push('/result')
+          return this.$router.push('/result');
         }
-        
+
         this.step += 1;
 
         this.startTimer();
@@ -122,6 +124,14 @@ export default {
       }
 
       return `quiz-counters__couter quiz-counters__couter--${counter === this.step ? 'current' : 'normal'}`;
+    },
+
+    openModal() {
+      this.isModalOpen = true;
+    },
+
+    closeModal() {
+      this.isModalOpen = false;
     },
   },
 };
