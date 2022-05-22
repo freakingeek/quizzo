@@ -2,14 +2,14 @@
   <VModal :show="isModalOpen" @on-close="closeModal">
     <div class="character">
       <div class="character__avatar-box">
-        <img src="/src/assets/images/sloths.jpg" alt="تنبل نیمه‌جان" class="character__avatar" />
+        <img :src="character.image" :alt="character.name" class="character__avatar" />
       </div>
 
-      <span class="character__name">تنبل نیمه‌جان</span>
+      <span class="character__name">{{ character.name }}</span>
 
       <p class="character__summary">
-        شما موفق به کسب کاراکتر <span class="character__summary-bold">«تنبل نیمه‌جان»</span> شدید! شاید اگر حتی اندکی
-        کارتان بهتر بود والدین‌تان به شما افتخار می‌کردند.
+        شما موفق به کسب کاراکتر <span class="character__summary-bold">«{{ character.name }}»</span> شدید!
+        {{ character.summary }}
       </p>
     </div>
 
@@ -18,7 +18,7 @@
 
   <DefaultLayout class="result-view">
     <h1 class="result-view__title">تموم شد!</h1>
-    <span class="result-view__description">شما توی این مسابقه ۱۴۱۴ امتیاز دریافت کردید و با افتخار سوم شدید!</span>
+    <span class="result-view__description">تبریک! شما توی این مسابقه {{ score }} امتیاز دریافت کردید!</span>
 
     <div class="result-view__actions">
       <button class="result-view__show-results" @click="openModal">مشاهده نتایج</button>
@@ -31,6 +31,9 @@
 import VModal from '/src/components/VModal/index.vue';
 import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
 
+// Mock Api
+import characters from '/src/assets/mock/characters.json';
+
 export default {
   name: 'ResultView',
 
@@ -41,8 +44,23 @@ export default {
 
   data() {
     return {
+      characters,
+
+      score: 0,
       isModalOpen: false,
     };
+  },
+
+  computed: {
+    character() {
+      return this.characters.find((c) => this.score >= c.minimumScore)
+    },
+  },
+
+  created() {
+    if (localStorage.getItem('score')) {
+      this.score = JSON.parse(localStorage.getItem('score'));
+    }
   },
 
   methods: {
@@ -56,9 +74,9 @@ export default {
 
     onCharacterSubmited() {
       this.updateLeaderboard({
-        image: '/src/assets/images/sloths.jpg',
-        name: 'تنبل نیمه‌جان',
-        score: '1212',
+        image: this.character.image,
+        name: this.character.name,
+        score: this.score,
       });
       this.isModalOpen = false;
       this.$router.push('/');

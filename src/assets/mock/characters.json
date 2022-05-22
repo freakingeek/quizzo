@@ -1,0 +1,20 @@
+[
+  {
+    "name": "فضانورد خفن",
+    "image": "/src/assets/images/astronaut.jpg",
+    "summary": "مثل همیشه عالی بود و باید بگم از شما کم‌تر از این هم انتظار نمی‌رفت.",
+    "minimumScore": 2700
+  },
+  {
+    "name": "فیل مهربون",
+    "image": "/src/assets/images/elephant.jpg",
+    "summary": "این فیل مهربون همیشه پیش‌تون می‌مونه تا شما یه‌وقت احساس تنهایی نکنید.",
+    "minimumScore": 1500
+  },
+  {
+    "name": "تنبل نیمه‌جان",
+    "image": "/src/assets/images/sloths.jpg",
+    "summary": "شاید اگر حتی اندکی کارتان بهتر بود والدین‌تان به شما افتخار می‌کردند.",
+    "minimumScore": 0
+  }
+]

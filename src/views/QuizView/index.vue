@@ -97,6 +97,8 @@ export default {
 
         // Check if next step is available or not
         if (this.step + 1 > this.quizes.length - 1) {
+          localStorage.setItem('score', JSON.stringify(this.calculateScore()));
+
           return this.$router.push('/result');
         }
 
@@ -124,6 +126,19 @@ export default {
       }
 
       return `quiz-counters__couter quiz-counters__couter--${counter === this.step ? 'current' : 'normal'}`;
+    },
+
+    calculateScore() {
+      let score = 0;
+
+      for (const status of this.statuses) {
+        if (status === 'win') score += 100;
+      }
+
+      const timeLeft = this.width / 10;
+      const finalScore = Math.floor(score * timeLeft);
+
+      return finalScore;
     },
   },
 };
