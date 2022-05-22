@@ -9,14 +9,14 @@
       <h2 class="leaderboard__title">جدول امتیازات</h2>
 
       <div class="leaders leaderboard__leaders">
-        <template v-for="num in 20" :key="num">
+        <template v-for="(leader, index) in leaderboard" :key="index">
           <div class="leader">
             <div class="leader__image-box">
-              <img src="/src/assets/images/sloths.jpg" alt="تنبل نیمه‌جان!" class="leader__image" />
+              <img :src="leader.image" :alt="leader.name" class="leader__image" />
             </div>
 
-            <span class="leader__name">تنبل نیمه‌جان!</span>
-            <span class="leader__score">۱۴۱۴ امتیاز</span>
+            <span class="leader__name">{{ leader.name }}</span>
+            <span class="leader__score">{{ leader.score }} امتیاز</span>
           </div>
         </template>
       </div>
@@ -32,6 +32,18 @@ export default {
 
   components: {
     DefaultLayout,
+  },
+
+  data() {
+    return {
+      leaderboard: [],
+    };
+  },
+
+  mounted() {
+    if (localStorage.getItem('leaderboard')) {
+      this.leaderboard = JSON.parse(localStorage.getItem('leaderboard'))
+    }
   },
 };
 </script>
