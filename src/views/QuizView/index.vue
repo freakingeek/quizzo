@@ -32,6 +32,9 @@ import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
 // Mock Api
 import quizzes from '/src/assets/mock/quizzes.json';
 
+// utils
+import { shuffleArray } from '/src/utils/index.js';
+
 export default {
   name: 'QuizView',
 
@@ -64,19 +67,7 @@ export default {
     },
 
     quizItems() {
-      let curId = this.quiz.items.length;
-
-      while (0 !== curId) {
-        let randId = Math.floor(Math.random() * curId);
-        curId -= 1;
-
-        let tmp = this.quiz.items[curId];
-
-        this.quiz.items[curId] = this.quiz.items[randId];
-        this.quiz.items[randId] = tmp;
-      }
-
-      return this.quiz.items;
+      return shuffleArray(this.quiz.items);
     },
 
     statusText() {
