@@ -59,7 +59,7 @@ export default {
 
   computed: {
     quizzes() {
-      return quizzes;
+      return shuffleArray(quizzes);
     },
 
     quiz() {
