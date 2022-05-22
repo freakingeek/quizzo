@@ -125,14 +125,6 @@ export default {
 
       return `quiz-counters__couter quiz-counters__couter--${counter === this.step ? 'current' : 'normal'}`;
     },
-
-    openModal() {
-      this.isModalOpen = true;
-    },
-
-    closeModal() {
-      this.isModalOpen = false;
-    },
   },
 };
 </script>
