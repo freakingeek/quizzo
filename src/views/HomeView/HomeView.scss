@@ -1,9 +1,5 @@
 @use '/src/assets/styles/functions.scss' as *;
 
-.leaderboard {
-  margin-top: rem(32px); // 56px - 24px (leaderboard padding) = 32px
-}
-
 .header {
   display: flex;
   padding: rem(24px);
@@ -25,4 +21,8 @@
     padding: rem(16px) rem(24px);
     background-color: var(--primary);
   }
+}
+
+.leaderboard {
+  margin-top: rem(32px); // 56px - 24px (leaderboard padding) = 32px
 }
