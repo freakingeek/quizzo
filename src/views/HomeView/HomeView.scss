@@ -1,14 +1,73 @@
+@use '/src/assets/styles/functions.scss' as *;
+
+.home-view {
+  &__leaderboard {
+    margin-top: rem(32px); // 56px - 24px (leaderboard padding) = 32px
+  }
+}
+
 .header {
   display: flex;
+  padding: rem(24px);
+  align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--gray-200);
 
   &__text {
-
+    font-weight: 700;
+    color: var(--black);
+    font-size: rem(16px);
   }
 
   &__link {
+    font-weight: 700;
     color: var(--white);
-    // padding: ;
+    font-size: rem(14px);
+    border-radius: rem(8px);
+    padding: rem(16px) rem(24px);
     background-color: var(--primary);
+  }
+}
+
+.leaderboard {
+  padding: rem(24px);
+
+  &__leaders {
+    margin-top: rem(48px);
+  }
+}
+
+.leaders {
+  display: grid;
+  grid-gap: rem(24px);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.leader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: rem(16px);
+  padding: rem(32px) rem(64px);
+  background-color: var(--white);
+  border: 2px solid var(--primary);
+
+  &__image-box {
+    overflow: hidden;
+    width: rem(128px);
+    height: rem(128px);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+  }
+
+  &__name {
+    font-size: rem(20px);
+    margin-top: rem(16px);
+  }
+
+  &__score {
+    font-weight: 700;
+    font-size: rem(20px);
+    margin-top: rem(16px);
   }
 }
