@@ -10,7 +10,7 @@
 
     <h1 class="quiz-view__title">{{ quiz.title }}</h1>
 
-    <div class="quizes quiz-view__quizes">
+    <div class="quizzes quiz-view__quizzes">
       <template v-for="item in quizItems" :key="item.id">
         <div class="quiz" @click="checkAnswer(item.id)">
           <span class="quiz__title">{{ item.title }}</span>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="quiz-counters">
-      <template v-for="counter in quizes.length" :key="counter">
+      <template v-for="counter in quizzes.length" :key="counter">
         <span :class="counterClasses(counter - 1)" />
       </template>
     </div>
@@ -30,7 +30,7 @@
 import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
 
 // Mock Api
-import quizes from '/src/assets/mock/quizes.json';
+import quizzes from '/src/assets/mock/quizzes.json';
 
 export default {
   name: 'QuizView',
@@ -55,12 +55,12 @@ export default {
   },
 
   computed: {
-    quizes() {
-      return quizes;
+    quizzes() {
+      return quizzes;
     },
 
     quiz() {
-      return this.quizes[this.step];
+      return this.quizzes[this.step];
     },
 
     quizItems() {
@@ -112,7 +112,7 @@ export default {
         this.status = null;
 
         // Check if next step is available or not
-        if (this.step + 1 > this.quizes.length - 1) {
+        if (this.step + 1 > this.quizzes.length - 1) {
           localStorage.setItem('score', JSON.stringify(this.calculateScore()));
 
           return this.$router.push('/result');
