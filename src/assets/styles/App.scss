@@ -14,6 +14,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   direction: rtl;
   line-height: 140%;
   box-sizing: border-box;
