@@ -21,7 +21,7 @@
         </template>
       </div>
 
-      <div class="leaderboard__empty">
+      <div v-else class="leaderboard__empty">
         <span >هنوز هیچ امتیازی ثبت نشده است ...</span>
       </div>
     </section>
