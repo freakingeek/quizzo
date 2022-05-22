@@ -22,7 +22,7 @@
       </div>
 
       <div v-else class="leaderboard__empty">
-        <span >هنوز هیچ امتیازی ثبت نشده است ...</span>
+        <span>هنوز هیچ امتیازی ثبت نشده است ...</span>
       </div>
     </section>
   </DefaultLayout>
@@ -46,7 +46,7 @@ export default {
 
   mounted() {
     if (localStorage.getItem('leaderboard')) {
-      this.leaderboard = JSON.parse(localStorage.getItem('leaderboard'))
+      this.leaderboard = JSON.parse(localStorage.getItem('leaderboard'));
     }
   },
 };
