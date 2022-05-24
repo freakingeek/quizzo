@@ -1,4 +1,4 @@
-## Quizo
+## Quizzo
 A fun project with Vue3! You can write a few quizzes and challenge your friends!  
 
 <br />

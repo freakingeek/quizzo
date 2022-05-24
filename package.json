@@ -1,5 +1,5 @@
 {
-  "name": "quizo",
+  "name": "quizzo",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
