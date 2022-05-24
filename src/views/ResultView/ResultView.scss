@@ -46,7 +46,7 @@
   }
 }
 
-::v-deep .modal {
+:deep(.modal) {
   max-width: rem(384px);
 }
 
