@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Views
 import HomeView from '/src/views/HomeView/index.vue';
-const QuizView = import('/src/views/QuizView/index.vue');
-const ResultView = import('/src/views/ResultView/index.vue');
+const QuizView = () => import('/src/views/QuizView/index.vue');
+const ResultView = () => import('/src/views/ResultView/index.vue');
 
 const routes = [
   {
