@@ -34,3 +34,7 @@ Use this scripts and **Boom 💥** you are ready to play!
 $ yarn install # or npm install
 $ yarn dev # or npm run dev
 ```
+
+## ✏ Todo
+
+- [ ] Use Composition API
