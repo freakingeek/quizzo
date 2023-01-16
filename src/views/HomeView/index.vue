@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
-import VLeaderboard from '/src/components/VLeaderboard/index.vue';
+import DefaultLayout from '@/layouts/DefaultLayout/index.vue';
+import VLeaderboard from '@/components/VLeaderboard/index.vue';
 
 export default {
   name: 'HomeView',

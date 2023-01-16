@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
+import DefaultLayout from '@/layouts/DefaultLayout/index.vue';
 
 // Mock Api
-import quizzes from '/src/assets/mock/quizzes.json';
+import quizzes from '@/assets/mock/quizzes.json';
 
 // utils
-import { shuffleArray } from '/src/utils/index.js';
+import { shuffleArray } from '@/utils/index.js';
 
 export default {
   name: 'QuizView',

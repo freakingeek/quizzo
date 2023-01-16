@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import VModal from '/src/components/VModal/index.vue';
-import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
+import VModal from '@/components/VModal/index.vue';
+import DefaultLayout from '@/layouts/DefaultLayout/index.vue';
 
 // Mock Api
-import characters from '/src/assets/mock/characters.json';
+import characters from '@/assets/mock/characters.json';
 
 export default {
   name: 'ResultView',
