@@ -66,6 +66,10 @@ export default {
     });
 
     const statusText = computed(() => {
+      if (statuses.value[step.value] === 'timeout') {
+        return 'وقتت تموم شد که!';
+      }
+
       return statuses.value[step.value] === 'win' ? quiz.value.response.win : quiz.value.response.lose;
     });
 
@@ -121,6 +125,10 @@ export default {
       statuses.value[step.value] = 'lose';
     };
 
+    const onTimeout = () => {
+      statuses.value[step.value] = 'timeout';
+    };
+
     const checkAnswer = (answerId) => {
       stopTimer();
 
@@ -139,7 +147,7 @@ export default {
 
     watch(width, (value) => {
       if (value <= 0) {
-        onLose();
+        onTimeout();
         changeStep();
       }
     });
