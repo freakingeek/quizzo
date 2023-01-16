@@ -5,13 +5,15 @@
       <RouterLink class="header__link" to="/quiz">شروع مسابقه جدید</RouterLink>
     </header>
 
-    <VLeaderboard class="leaderboard" />
+    <VLeaderboard :leaderboard="leaderboard" class="leaderboard" />
   </DefaultLayout>
 </template>
 
 <script>
-import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
-import VLeaderboard from '/src/components/VLeaderboard/index.vue';
+import DefaultLayout from '@/layouts/DefaultLayout/index.vue';
+import VLeaderboard from '@/components/VLeaderboard/index.vue';
+
+import { ref } from 'vue';
 
 export default {
   name: 'HomeView',
@@ -19,6 +21,13 @@ export default {
   components: {
     VLeaderboard,
     DefaultLayout,
+  },
+
+  setup() {
+    const leaderboard = ref([]);
+    leaderboard.value = localStorage.getItem('leaderboard') ? JSON.parse(localStorage.getItem('leaderboard')) : [];
+
+    return { leaderboard };
   },
 };
 </script>

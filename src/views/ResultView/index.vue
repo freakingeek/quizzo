@@ -28,11 +28,14 @@
 </template>
 
 <script>
-import VModal from '/src/components/VModal/index.vue';
-import DefaultLayout from '/src/layouts/DefaultLayout/index.vue';
+import VModal from '@/components/VModal/index.vue';
+import DefaultLayout from '@/layouts/DefaultLayout/index.vue';
 
 // Mock Api
-import characters from '/src/assets/mock/characters.json';
+import characters from '@/assets/mock/characters.json';
+
+import { ref, computed, onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'ResultView',
@@ -42,47 +45,31 @@ export default {
     DefaultLayout,
   },
 
-  data() {
-    return {
-      characters,
+  setup() {
+    const score = ref(0);
+    const isModalOpen = ref(false);
 
-      score: 0,
-      isModalOpen: false,
+    const router = useRouter();
+
+    const character = computed(() => {
+      return characters.find((c) => score.value >= c.minimumScore);
+    });
+
+    onBeforeMount(() => {
+      if (localStorage.getItem('score')) {
+        score.value = JSON.parse(localStorage.getItem('score'));
+      }
+    });
+
+    const openModal = () => {
+      isModalOpen.value = true;
     };
-  },
 
-  computed: {
-    character() {
-      return this.characters.find((c) => this.score >= c.minimumScore)
-    },
-  },
+    const closeModal = () => {
+      isModalOpen.value = false;
+    };
 
-  created() {
-    if (localStorage.getItem('score')) {
-      this.score = JSON.parse(localStorage.getItem('score'));
-    }
-  },
-
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-
-    closeModal() {
-      this.isModalOpen = false;
-    },
-
-    onCharacterSubmited() {
-      this.updateLeaderboard({
-        image: this.character.image,
-        name: this.character.name,
-        score: this.score,
-      });
-      this.isModalOpen = false;
-      this.$router.push('/');
-    },
-
-    updateLeaderboard(character) {
+    const updateLeaderboard = (character) => {
       let leaderboard = [];
 
       if (localStorage.getItem('leaderboard')) {
@@ -91,7 +78,20 @@ export default {
 
       leaderboard.push(character);
       localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-    },
+    };
+
+    const onCharacterSubmited = () => {
+      updateLeaderboard({
+        image: character.value.image,
+        name: character.value.name,
+        score: score.value,
+      });
+
+      isModalOpen.value = false;
+      router.push('/');
+    };
+
+    return { score, isModalOpen, characters, character, openModal, closeModal, onCharacterSubmited };
   },
 };
 </script>

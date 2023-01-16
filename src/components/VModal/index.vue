@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { toRef, watch } from 'vue';
+
 export default {
   name: 'VModal',
 
@@ -19,34 +21,40 @@ export default {
     },
   },
 
-  watch: {
-    show: {
-      handler(hasShow) {
-        if (hasShow) {
-          document.addEventListener('keyup', this.onEscapeKeyClicked);
-          document.addEventListener('click', this.onBackgroundClicked);
-        } else {
-          document.removeEventListener('keyup', this.onEscapeKeyClicked);
-          document.removeEventListener('click', this.onBackgroundClicked);
-        }
-      },
-      immediate: true,
-    },
-  },
+  setup(props, { emit }) {
+    const show = toRef(props, 'show');
 
-  methods: {
-    onClose() {
-      this.$emit('on-close');
-    },
+    const onClose = () => {
+      emit('on-close');
+    };
 
-    onBackgroundClicked(e) {
+    const onBackgroundClicked = (e) => {
       const modalWrapper = document.querySelector('.modal-wrapper');
-      if (e.target === modalWrapper) this.onClose();
-    },
 
-    onEscapeKeyClicked(e) {
-      if (e.key === 'Escape') this.onClose();
-    },
+      if (e.target === modalWrapper) {
+        onClose();
+      }
+    };
+
+    const onEscapeKeyClicked = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    const watchHandler = (canShow) => {
+      if (canShow) {
+        document.addEventListener('keyup', onEscapeKeyClicked);
+        document.addEventListener('click', onBackgroundClicked);
+      } else {
+        document.removeEventListener('keyup', onEscapeKeyClicked);
+        document.removeEventListener('click', onBackgroundClicked);
+      }
+    };
+
+    watch(show, watchHandler, { immediate: true });
+
+    return { show, onBackgroundClicked, onEscapeKeyClicked };
   },
 };
 </script>

@@ -124,6 +124,12 @@
       background-color: #e5383b16;
     }
 
+    &--timeout {
+      width: rem(24px);
+      border-radius: rem(12px);
+      background-color: var(--gray-200);
+    }
+
     &--lose {
       width: rem(24px);
       border-radius: rem(12px);
@@ -174,6 +180,11 @@
   &--lose {
     color: var(--red);
     background: rgba(229, 56, 59, 0.2);
+  }
+
+  &--timeout {
+    color: var(--gray-400);
+    background: rgba(211, 211, 211, 0.2);
   }
 
   @media screen and (max-width: 425px) {
