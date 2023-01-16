@@ -37,4 +37,6 @@ $ yarn dev # or npm run dev
 
 ## ✏ Todo
 
-- [ ] Use Composition API
+- [X] ~~Use Composition API~~
+- [ ] Create a global leaderboard
+- [ ] Add more quizzes and characters 
