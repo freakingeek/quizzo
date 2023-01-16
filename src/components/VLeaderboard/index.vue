@@ -25,16 +25,15 @@
 export default {
   name: 'VLeaderboard',
 
-  data() {
-    return {
-      leaderboard: [],
-    };
+  props: {
+    leaderboard: {
+      type: Array,
+      required: true,
+    },
   },
 
-  mounted() {
-    if (localStorage.getItem('leaderboard')) {
-      this.leaderboard = JSON.parse(localStorage.getItem('leaderboard'));
-    }
+  setup(props) {
+    return { leaderboard: props.leaderboard };
   },
 };
 </script>
