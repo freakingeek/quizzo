@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "vue": "^3.2.25",
@@ -13,6 +15,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
     "sass": "^1.52.1",
-    "vite": "^2.9.9"
+    "vite": "^2.9.9",
+    "vitest": "^0.29.8"
   }
 }
