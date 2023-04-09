@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "vue": "^3.2.25",
