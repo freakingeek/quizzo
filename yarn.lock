@@ -3281,10 +3281,10 @@ vite-node@1.2.0:
     picocolors "^1.0.0"
     vite "^5.0.0"
 
-vite-plugin-pwa@^0.17.2:
-  version "0.17.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.17.2.tgz#2ce9b0b14b058321c58d2a066daffe6860a08a78"
-  integrity sha512-aVH9sxcTDumiWYiNcLrFqu+FdL79I2cT5EhlVe5V6nGcC64yQNGT1jamMytwi+OdfXl4VYic0LtoJ6JHMkM3ZQ==
+vite-plugin-pwa@^0.19.3:
+  version "0.19.3"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.19.3.tgz#746e82ab1668cdb36e76377dcfe0f15bf331c248"
+  integrity sha512-ajY7Vn39hFbkWyqkyoJT40hPJcfU9AAfCugARJ3AdqK258z3mi3dmG88PB0+1WqJwUsedRRPkScH5HnQBzmRMQ==
   dependencies:
     debug "^4.3.4"
     fast-glob "^3.3.2"
